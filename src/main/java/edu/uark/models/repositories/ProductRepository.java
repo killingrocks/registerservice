@@ -39,6 +39,6 @@ public class ProductRepository extends BaseRepository<ProductEntity> implements 
 	}
 	
 	public ProductRepository() {
-		super(DatabaseTable.PRODUCT);
+		super(DatabaseTable.TRANSACTION);
 	}
 }
