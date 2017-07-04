@@ -17,7 +17,7 @@ import edu.uark.models.api.Product;
 import edu.uark.models.api.ProductListing;
 
 @RestController
-@RequestMapping(value = "/product")
+@RequestMapping(value = "/transaction")
 public class ProductRestController {
 	@RequestMapping(value = "/apiv0/{productId}", method = RequestMethod.GET)
 	public Product getProduct(@PathVariable UUID productId) {
