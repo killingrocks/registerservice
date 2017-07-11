@@ -41,6 +41,10 @@ public class ProductRestController {
 	@RequestMapping(value = "/apiv0/", method = RequestMethod.PUT)
 	public Product putActivity(@RequestBody Product product) {
 		System.out.println("=======================================================");
+		System.out.println("IN CONTROL [LOOK UP CODE:"+ product.getLookupCode() +"]");
+		System.out.println("=======================================================");
+		
+		System.out.println("=======================================================");
 		System.out.println("IN CONTROL [FIRST NAME:"+ product.getFirstName() +"]");
 		System.out.println("=======================================================");
 		return (new ProductSaveCommand()).
