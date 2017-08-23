@@ -13,7 +13,7 @@ public class Product {
 	public Product() {
 		this.count = -1;
 		this.lookupCode = "";
-		this.firstName = "";
+		this.firstname = "";
 		this.id = new UUID(0, 0);
 		this.createdOn = LocalDateTime.now();
 		this.apiRequestMessage = StringUtils.EMPTY;
@@ -23,7 +23,7 @@ public class Product {
 	public Product(ProductEntity productEntity) {
 		this.id = productEntity.getId();
 		this.lookupCode = productEntity.getLookupCode();
-		this.firstName = productEntity.getFirstName();
+		this.firstname = productEntity.getFirstName();
 		this.count = productEntity.getCount();
 		this.createdOn = productEntity.getCreatedOn();
 		this.apiRequestMessage = StringUtils.EMPTY;
@@ -33,7 +33,7 @@ public class Product {
 	
 	private UUID id;
 	private String lookupCode;
-	private String firstName;
+	private String firstname;
 	private int count;
 	private LocalDateTime createdOn;
 	private String apiRequestMessage;
@@ -41,7 +41,7 @@ public class Product {
 	
 	public UUID getId() {return this.id;}
 	public String getLookupCode() {return this.lookupCode;}
-	public String getFirstName(){return this.firstName;}
+	public String getFirstName(){return this.firstname;}
 	public int getCount() {	return this.count;}
 	public LocalDateTime getCreatedOn() {return this.createdOn;}
 	public String getApiRequestMessage() {	return this.apiRequestMessage;}
@@ -55,8 +55,8 @@ public class Product {
 		this.lookupCode = lookupCode;
 		return this;
 	}
-	public Product setFirstName(String firstName){
-		this.firstName = firstName;
+	public Product setFirstName(String firstname){
+		this.firstname = firstname;
 		return this;
 	}
 	public Product setCount(int count) {
