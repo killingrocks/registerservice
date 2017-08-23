@@ -18,7 +18,7 @@ public class ProductEntity extends BaseEntity<ProductEntity> {
 	@Override
 	protected void fillFromRecord(ResultSet rs) throws SQLException {
 		this.lookupCode = rs.getString(ProductFieldNames.LOOKUP_CODE);
-		this.firstname = rs.getString(ProductFieldNames.FIRST_NAME);
+		this.firstName = rs.getString(ProductFieldNames.FIRST_NAME);
 		this.count = rs.getInt(ProductFieldNames.COUNT);
 		this.createdOn = rs.getTimestamp(ProductFieldNames.CREATED_ON).toLocalDateTime();
 	}
@@ -26,7 +26,7 @@ public class ProductEntity extends BaseEntity<ProductEntity> {
 	@Override
 	protected Map<String, Object> fillRecord(Map<String, Object> record) {
 		record.put(ProductFieldNames.LOOKUP_CODE, this.lookupCode);
-		record.put(ProductFieldNames.FIRST_NAME, this.firstname);
+		record.put(ProductFieldNames.FIRST_NAME, this.firstName);
 		record.put(ProductFieldNames.COUNT, this.count);
 		record.put(ProductFieldNames.CREATED_ON, Timestamp.valueOf(this.createdOn));
 		return record;
@@ -43,7 +43,7 @@ public class ProductEntity extends BaseEntity<ProductEntity> {
 	public ProductEntity() {
 		super(new ProductRepository());
 		this.lookupCode = StringUtils.EMPTY;
-		this.firstname =StringUtils.EMPTY;
+		this.firstName =StringUtils.EMPTY;
 		this.count = -1;
 		this.createdOn = LocalDateTime.now();
 	}
@@ -51,7 +51,7 @@ public class ProductEntity extends BaseEntity<ProductEntity> {
 	public ProductEntity(UUID id) {
 		super(id, new ProductRepository());
 		this.lookupCode = StringUtils.EMPTY;
-		this.firstname =StringUtils.EMPTY;
+		this.firstName =StringUtils.EMPTY;
 		this.count = -1;
 		this.createdOn = LocalDateTime.now();
 	}
@@ -60,19 +60,19 @@ public class ProductEntity extends BaseEntity<ProductEntity> {
 		super(apiProduct.getId(), new ProductRepository());
 
 		this.lookupCode = apiProduct.getLookupCode();
-		this.firstname = apiProduct.getFirstName();
+		this.firstName = apiProduct.getFirstName();
 		this.count = apiProduct.getCount();
 		this.createdOn = LocalDateTime.now();
 	}
 	
 	private String lookupCode;
-	private String firstname;
+	private String firstName;
 	private int count;
 	private LocalDateTime createdOn;
 	
 	
 	public String getLookupCode() {return this.lookupCode;}
-	public String getFirstName() {return this.firstname;}
+	public String getFirstName() {return this.firstName;}
 	public int getCount() {	return this.count;}
 	public LocalDateTime getCreatedOn() {return this.createdOn;}
 	
@@ -84,9 +84,10 @@ public class ProductEntity extends BaseEntity<ProductEntity> {
 		}
 		return this;
 	}
-	public ProductEntity setFirstName(String firstname){
-		if (!StringUtils.equals(this.firstname, firstname)){
-			this.firstname = firstname;
+	
+	public ProductEntity setFirstName(String firstName){
+		if (!StringUtils.equals(this.firstName, firstName)){
+			this.firstName = firstName;
 			this.propertyChanged(ProductFieldNames.FIRST_NAME);
 		}
 		return this;
