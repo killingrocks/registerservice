@@ -29,7 +29,6 @@ public class ProductEntity extends BaseEntity<ProductEntity> {
 		record.put(ProductFieldNames.FIRST_NAME, this.firstname);
 		record.put(ProductFieldNames.COUNT, this.count);
 		record.put(ProductFieldNames.CREATED_ON, Timestamp.valueOf(this.createdOn));
-		
 		return record;
 	}
 
