@@ -22,10 +22,10 @@ public class Product {
 	
 	public Product(ProductEntity productEntity) {
 		this.id = productEntity.getId();
-		this.count = productEntity.getCount();
-		this.createdOn = productEntity.getCreatedOn();
 		this.lookupCode = productEntity.getLookupCode();
 		this.firstname = productEntity.getFirstName();
+		this.count = productEntity.getCount();
+		this.createdOn = productEntity.getCreatedOn();
 		this.apiRequestMessage = StringUtils.EMPTY;
 		this.apiRequestStatus = ProductApiRequestStatus.OK;
 	}
@@ -36,16 +36,16 @@ public class Product {
 	private String firstname;
 	private int count;
 	private LocalDateTime createdOn;
-	private ProductApiRequestStatus apiRequestStatus;
 	private String apiRequestMessage;
+	private ProductApiRequestStatus apiRequestStatus;
 	
 	public UUID getId() {return this.id;}
 	public String getLookupCode() {return this.lookupCode;}
 	public String getFirstName(){return this.firstname;}
 	public int getCount() {	return this.count;}
 	public LocalDateTime getCreatedOn() {return this.createdOn;}
-	public ProductApiRequestStatus getApiRequestStatus() {	return this.apiRequestStatus;	}
 	public String getApiRequestMessage() {	return this.apiRequestMessage;}
+	public ProductApiRequestStatus getApiRequestStatus() {	return this.apiRequestStatus;	}
 	
 	public Product setId(UUID id) {
 		this.id = id;
@@ -67,12 +67,6 @@ public class Product {
 		this.createdOn = createdOn;
 		return this;
 	}
-	public Product setApiRequestStatus(ProductApiRequestStatus apiRequestStatus) {
-		if (this.apiRequestStatus != apiRequestStatus) {
-			this.apiRequestStatus = apiRequestStatus;
-		}
-		return this;
-	}
 	public Product setApiRequestMessage(String apiRequestMessage) {
 		if (!StringUtils.equalsIgnoreCase(this.apiRequestMessage, apiRequestMessage)) {
 			this.apiRequestMessage = apiRequestMessage;
@@ -80,5 +74,11 @@ public class Product {
 		return this;
 	}
 	
+	public Product setApiRequestStatus(ProductApiRequestStatus apiRequestStatus) {
+		if (this.apiRequestStatus != apiRequestStatus) {
+			this.apiRequestStatus = apiRequestStatus;
+		}
+		return this;
+	}	
 
 }

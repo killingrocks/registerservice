@@ -34,34 +34,35 @@ public class ProductEntity extends BaseEntity<ProductEntity> {
 	}
 
 	public Product synchronize(Product apiProduct) {
-		this.setCount(apiProduct.getCount());
 		this.setLookupCode(apiProduct.getLookupCode());
 		this.setFirstName(apiProduct.getFirstName());
+		this.setCount(apiProduct.getCount());
 		apiProduct.setCreatedOn(this.createdOn);
 		return apiProduct;
 	}
 	
 	public ProductEntity() {
 		super(new ProductRepository());
-		this.count = -1;
 		this.lookupCode = StringUtils.EMPTY;
 		this.firstname =StringUtils.EMPTY;
+		this.count = -1;
 		this.createdOn = LocalDateTime.now();
 	}
 	
 	public ProductEntity(UUID id) {
 		super(id, new ProductRepository());
-		this.count = -1;
 		this.lookupCode = StringUtils.EMPTY;
 		this.firstname =StringUtils.EMPTY;
+		this.count = -1;
 		this.createdOn = LocalDateTime.now();
 	}
 
 	public ProductEntity(Product apiProduct) {
 		super(apiProduct.getId(), new ProductRepository());
-		this.count = apiProduct.getCount();
+
 		this.lookupCode = apiProduct.getLookupCode();
 		this.firstname = apiProduct.getFirstName();
+		this.count = apiProduct.getCount();
 		this.createdOn = LocalDateTime.now();
 	}
 	
